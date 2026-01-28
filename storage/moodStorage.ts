@@ -209,6 +209,7 @@ export async function calculateWeeklyInsights(): Promise<WeeklyInsight> {
         focused: 0,
         neutral: 0,
         excited: 0,
+        sad: 0,
     };
 
     entries.forEach(entry => {
@@ -251,13 +252,14 @@ function generateBasicInsights(entries: MoodEntry[], moodCounts: Record<Mood, nu
         focused: "driven",
         neutral: "balanced",
         excited: "energized",
+        sad: "melancholic",
     };
 
     insights.push(`You've been feeling mostly ${moodDescriptions[dominantMood]} this week.`);
 
     // Time-based patterns
     const eveningEntries = entries.filter(e => e.timeOfDay === 'evening');
-    const eveningCalm = eveningEntries.filter(e => e.mood === 'calm' || e.mood === 'happy').length;
+    const eveningCalm = eveningEntries.filter(e => e.mood === 'calm' || e.mood === 'happy' || e.mood === 'sad').length;
     if (eveningEntries.length > 0 && eveningCalm > eveningEntries.length / 2) {
         insights.push("Evenings bring you peace. You're often calmer as the day winds down.");
     }
