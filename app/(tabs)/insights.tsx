@@ -298,6 +298,7 @@ export default function InsightsScreen() {
             focused: '🎯',
             excited: '✨',
             neutral: '😐',
+            sad: '😔',
         };
         return emojiMap[mood];
     };

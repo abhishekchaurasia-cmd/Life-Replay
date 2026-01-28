@@ -33,6 +33,7 @@ const MOODS: { mood: Mood; emoji: string; label: string }[] = [
     { mood: 'focused', emoji: '🎯', label: 'Focused' },
     { mood: 'excited', emoji: '✨', label: 'Excited' },
     { mood: 'neutral', emoji: '😐', label: 'Neutral' },
+    { mood: 'sad', emoji: '😔', label: 'Sad' },
 ];
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);

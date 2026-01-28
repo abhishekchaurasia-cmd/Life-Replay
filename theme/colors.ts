@@ -27,6 +27,7 @@ export const colors = {
     focused: '#C9B1FF',    // Light lavender
     neutral: '#8A8A8E',    // Gray
     excited: '#FF9F43',    // Warm orange
+    sad: '#8A8A8E',        // Soft gray (similar to neutral)
   },
   
   // Section gradients for time of day

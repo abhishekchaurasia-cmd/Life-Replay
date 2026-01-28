@@ -1,7 +1,7 @@
 // Enhanced Story Generation Engine for Life Replay
 // Dynamic story generation using mood, activities, energy, and notes
 
-export type Mood = 'happy' | 'calm' | 'tired' | 'anxious' | 'focused' | 'neutral' | 'excited';
+export type Mood = 'happy' | 'calm' | 'tired' | 'anxious' | 'focused' | 'neutral' | 'excited' | 'sad';
 export type TimeOfDay = 'morning' | 'afternoon' | 'evening';
 export type ActivityId = 'work' | 'social' | 'exercise' | 'creative' | 'rest' | 'nature' | 'learning' | 'family';
 
@@ -242,6 +242,29 @@ const storyTemplates: Record<Mood, Record<TimeOfDay, string[]>> = {
             "What a day to remember. The energy lives on.",
         ],
     },
+    sad: {
+        morning: [
+            "The morning felt heavy, like carrying a weight you didn't ask for.",
+            "You woke with a dull ache, {{ENERGY_STATE}}.",
+            "Dawn arrived, but joy felt distant, {{ACTIVITY_EFFECT}}.",
+            "You began the day despite the heaviness in your chest.",
+            "The morning asked for courage just to get out of bed.",
+        ],
+        afternoon: [
+            "The afternoon moved slowly, each hour a small victory.",
+            "You carried sadness through the day, {{ACTIVITY_DOING}}.",
+            "Grief sat beside you, but you didn't let it consume you.",
+            "You {{ENERGY_VERB}} the hours, even when it felt impossible.",
+            "The day demanded more strength than you thought you had.",
+        ],
+        evening: [
+            "Night came as a gentle relief from the weight of the day.",
+            "The evening welcomed you with quiet understanding, {{ACTIVITY_PAST}}.",
+            "You made it through, and that's what matters.",
+            "{{NOTE_REFLECTION}}",
+            "Tomorrow is a new chance to find light again.",
+        ],
+    },
 };
 
 // Summary templates with dynamic elements
@@ -287,6 +310,12 @@ const summaryTemplates: Record<Mood, string[]> = {
         "You embraced the day's possibilities, {{ACTIVITY_SUMMARY}}.",
         "A day alive with spark and wonder.",
         "The excitement will echo in your dreams.",
+    ],
+    sad: [
+        "Today carried a quiet weight.",
+        "You moved through the hours with grace.",
+        "A day of gentle perseverance, {{ACTIVITY_SUMMARY}}.",
+        "Even in sadness, you showed up.",
     ],
 };
 
